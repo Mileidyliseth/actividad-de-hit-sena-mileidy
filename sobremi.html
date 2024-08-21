@@ -4,58 +4,90 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sobre Mí</title>
+    <title>Mi Página Personal</title>
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
+            background-color: #e0f7fa; 
             margin: 0;
             padding: 0;
         }
 
         header {
-            background-color: #333;
-            color: white;
+            background-color: #00796b;
+            color: #ffffff; 
             padding: 15px 0;
             text-align: center;
         }
 
         nav {
-            background-color: #444;
+            background-color: #004d40; 
             padding: 10px;
             text-align: center;
+            position: relative;
+        }
+
+        nav .menu {
+            display: inline-block;
+            position: relative;
+        }
+
+        nav .menu:hover .submenu {
+            display: block;
         }
 
         nav a {
-            color: white;
+            color: #ffffff; 
             margin: 0 15px;
             text-decoration: none;
             font-size: 18px;
+            display: block;
+            padding: 10px;
+            transition: background-color 0.3s;
+        }
+
+        nav .submenu {
+            display: none;
+            position: absolute;
+            background-color: #00796b; 
+            top: 100%;
+            left: 0;
+            min-width: 150px;
+            text-align: left;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+        }
+
+        nav .submenu a {
+            margin: 0;
+            padding: 10px 15px;
+            color: #e0f7fa; 
         }
 
         nav a:hover {
+            background-color: #00695c; 
             text-decoration: underline;
         }
 
         main {
             padding: 20px;
-            background-color: white;
+            background-color: #ffffff;
             max-width: 800px;
             margin: 20px auto;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
 
         h1 {
-            color: #333;
+            color: #00796b; 
         }
 
         p {
             line-height: 1.6;
+            color: #333; 
         }
 
         footer {
-            background-color: #333;
-            color: white;
+            background-color: #004d40; 
+            color: #ffffff;
             text-align: center;
             padding: 10px 0;
             margin-top: 20px;
@@ -68,35 +100,47 @@
 </head>
 
 <body>
-    <header>
-        <h1>Sobre Mí</h1>
-    </header>
-
-    <nav>
-        <a href="index.html">Inicio</a>
-        <a href="sobre_mi.html">Sobre Mí</a>
-        <a href="proyectos.html">Proyectos</a>
-        <a href="contacto.html">Contacto</a>
-    </nav>
+    <body>
+        <header>
+            <h1>Sobre mi</h1>
+        </header>
+    
+        <nav>
+            <div class="menu">
+                <a href="#">Menú</a>
+                <div class="submenu">
+                    <a href="index.html">Inicio</a>
+                    <a href="sobremi.html">Sobre Mí</a>
+                    <a href="proyectos.html">Proyectos</a>
+                    <a href="contacto.html">Contacto</a>
+                </div>
+            </div>
+        </nav>
+    
 
     <main>
         <h2>¿Quién Soy?</h2>
-        <p>Soy Wendy Rosero, una apasionada del desarrollo de software, la tecnología y el aprendizaje continuo. 
-           Actualmente, estoy aprendiendo sobre diferentes lenguajes de programación y desarrollando proyectos personales 
-           para mejorar mis habilidades técnicas.</p>
+        <p>Soy Mileidy, una apasionada por el dibujo y el aprendizaje continuo. 
+        Actualmente, estoy aprendiendo sobre diferentes lenguajes de programación
+        en el sena y mas que mencionarte lo que hago yo soy yo, una mezcla de todas
+        las decisiones que he tomado porque eso me ha echo la mujer que soy ahora</p>
 
         <h3>Mis Intereses</h3>
-        <p>Me gusta escuchar música, leer, ver series y aprender cosas nuevas. Uno de mis mayores objetivos es 
-           viajar a diferentes lugares del mundo para conocer nuevas culturas y personas.</p>
+        <p>Me gusta escuchar música, leer, ver series, cantar, dibujar.
+            Uno de mis mayores objetivos es viajar a diferentes lugares del mundo
+            comprar mi casa, junto con un auto para conocer nuevos lugares.</p>
 
         <h3>Mi Trayectoria</h3>
-        <p>Comencé a estudiar desarrollo de software en el SENA, donde he aprendido los fundamentos de la programación. 
-           A medida que avanzo, estoy trabajando en proyectos pequeños pero desafiantes que me permiten poner en práctica 
+        <p>Comencé a estudiar en el colegio sucre que es el unico colegio donde he estudiado
+            desde pre-escolar, cuanto cursava octavo grado entre a la universidad de nariño 
+            donde descubri mi pasion por aprender nuevos idiomas y me gradue, ahora estoy
+            estudiando desarrollo de software en el SENA por curiosidad y he aprendido que 
+            dfinitivamente no es mi fuerte los fundamentos de la programación. 
            lo que he aprendido.</p>
     </main>
 
     <footer>
-        <p>&copy; Wendy Rosero.</p>
+        <p>&copy; Mileidy Santiago</p>
     </footer>
 </body>
 

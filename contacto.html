@@ -4,154 +4,90 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contacto</title>
+    <title>Mi Página Personal</title>
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
+            background-color: #e0f7fa; 
             margin: 0;
             padding: 0;
         }
 
         header {
-            background-color: #333;
-            color: white;
+            background-color: #00796b; 
+            color: #ffffff; 
             padding: 15px 0;
             text-align: center;
         }
 
         nav {
-            background-color: #444;
+            background-color: #004d40; 
             padding: 10px;
             text-align: center;
+            position: relative;
+        }
+
+        nav .menu {
+            display: inline-block;
+            position: relative;
+        }
+
+        nav .menu:hover .submenu {
+            display: block;
         }
 
         nav a {
-            color: white;
+            color: #ffffff; 
             margin: 0 15px;
             text-decoration: none;
             font-size: 18px;
+            display: block;
+            padding: 10px;
+            transition: background-color 0.3s;
+        }
+
+        nav .submenu {
+            display: none;
+            position: absolute;
+            background-color: #00796b; 
+            top: 100%;
+            left: 0;
+            min-width: 150px;
+            text-align: left;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+        }
+
+        nav .submenu a {
+            margin: 0;
+            padding: 10px 15px;
+            color: #e0f7fa; 
         }
 
         nav a:hover {
+            background-color: #00695c; 
             text-decoration: underline;
         }
 
         main {
             padding: 20px;
-            background-color: white;
+            background-color: #ffffff; 
             max-width: 800px;
             margin: 20px auto;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
 
         h1 {
-            color: #333;
+            color: #00796b; 
         }
 
         p {
             line-height: 1.6;
+            color: #333; 
         }
 
         footer {
-            background-color: #333;
-            color: white;
-            text-align: center;
-            padding: 10px 0;
-            margin-top: 20px;
-        }
-
-        footer p {
-            margin: 0;
-        }
-
-        form {
-            max-width: 600px;
-            margin: 0 auto;
-            padding: 20px;
-            background-color: #f9f9f9;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-
-        input,
-        textarea {
-            width: 100%;
-            padding: 8px;
-            margin-bottom: 10px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            font-size: 14px;
-        }
-
-        button {
-            background-color: #5f1818;
-            color: white;
-            padding: 8px 15px;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            font-size: 14px;
-        }
-
-        button:hover {
-            background-color: #555;
-        }
-    </style>
-</head><head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sobre Mí</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
-            margin: 0;
-            padding: 0;
-        }
-
-        header {
-            background-color: #60d9ec;
-            color: white;
-            padding: 15px 0;
-            text-align: center;
-        }
-
-        nav {
-            background-color: #448ac5;
-            padding: 10px;
-            text-align: center;
-        }
-
-        nav a {
-            color: white;
-            margin: 0 15px;
-            text-decoration: none;
-            font-size: 18px;
-        }
-
-        nav a:hover {
-            text-decoration: underline;
-        }
-
-        main {
-            padding: 20px;
-            background-color: white;
-            max-width: 800px;
-            margin: 20px auto;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-
-        h1 {
-            color: #000000;
-        }
-
-        p {
-            line-height: 1.6;
-        }
-
-        footer {
-            background-color: #60d9ec;
-            color: white;
+            background-color: #004d40; 
+            color: #ffffff; 
             text-align: center;
             padding: 10px 0;
             margin-top: 20px;
@@ -163,45 +99,42 @@
     </style>
 </head>
 
+
 <body>
     <header>
-        <h1>Conciencia social</h1>
+        <h1>Contacto</h1>
     </header>
-
     <nav>
-        <a href="index.html">Inicio</a>
-        <a href="sobremi.html">Salud y seguridad de las drogas</a>
-        <a href="proyectos.html">Prevencion</a>
-        <a href="contacto.html">Conciencia social</a>
+        <div class="menu">
+            <a href="#">Menú</a>
+            <div class="submenu">
+                <a href="index.html">Inicio</a>
+                <a href="sobremi.html">Sobre Mí</a>
+                <a href="proyectos.html">Proyectos</a>
+                <a href="contacto.html">Contacto</a>
+            </div>
+        </div>
     </nav>
-
     <main>
-        <h2>Conciencia Social sobre las Drogas</h2>
-        <p>Es crucial que todos nos involucremos en la creación de una
-        sociedad más informada y responsable respecto al uso de drogas.
-        La conciencia social implica comprender cómo las drogas
-        afectan no solo a los individuos, sino también a las 
-        familias, comunidades y la sociedad en general. Juntos, 
-        podemos trabajar para reducir el estigma, apoyar a quienes
-        lo necesitan, y promover un entorno más seguro y saludable.</p>
-    
+        <h2>Ponte en Contacto Conmigo</h2>
+        <p>Si tienes alguna pregunta, comentario, o simplemente quieres saludar, no dudes en enviarme un mensaje a través del formulario a continuación.</p>
+
         <form action="#" method="post">
             <label for="nombre">Nombre:</label>
             <input type="text" id="nombre" name="nombre" placeholder="Tu nombre" required>
-    
+
             <label for="email">Correo Electrónico:</label>
             <input type="email" id="email" name="email" placeholder="Tu correo electrónico" required>
-    
+
             <label for="mensaje">Mensaje:</label>
-            <textarea id="mensaje" name="mensaje" rows="5" 
-            placeholder="Contactanos para ayudarte y trabajar juntos para crear conciencia sobre las drogas..." required></textarea>
-    
+            <textarea id="mensaje" name="mensaje" rows="5" placeholder="Escribe tu mensaje aquí..." required></textarea>
+
             <button type="submit">Enviar Mensaje</button>
         </form>
-    </main>    
+    </main>
 
     <footer>
-        <p>&copy; Mileidy Santiago.</p>
+        <p>&copy; Mileidy Santiago</p>
     </footer>
 </body>
 

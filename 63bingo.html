@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+        }
+        table,td {
+            border: 1px black solid;
+            border-collapse: collapse;
+            background-color: aliceblue;
+            color: black;
+            text-align: center;
+        }
+        td{
+            padding: 20px;
+            height: 25px;
+            width: 25px;
+        }
+        button {
+            margin-top: 10px;
+            padding: 10px;
+            background-color: rgb(0, 157, 255);
+            color: white;
+            font-weight: bolder;
+        }
+        button:hover {
+            background-color: rgb(0, 229, 255);
+            cursor: pointer;
+        }
+        header {
+            background-color: red;
+            width: 100vw;
+        }
+        main {
+            padding: 20px;
+        }
+        ul {
+            display: flex;
+            padding: 25px;
+            justify-content: center;
+            align-items: center;
+        }
+        li {
+            margin-right: 10px;
+            list-style-type: none;
+        }
+        a {
+            text-decoration: none;
+            color: white;
+        }
+        img {
+            width: 400px;
+        }
+        main {
+            display: flex;
+            justify-content: center;
+            text-align: center;
+        }
+        main > div {
+            margin-right: 10px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="./62bingo.html">Inicio</a></li>
+                <li><a href="./59bingo.html">Tablas</a></li>
+                <li><a href="./60bingo.html">Manual</a></li>
+                <li><a href="./61bingo.html">En linea</a></li>
+                <li><a href="./63bingo.html">Jugar</a></li>
+
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <div>
+            <h1>Bingo</h1>
+            <table>
+                <tbody id="table1"></tbody>
+            </table>
+        </div>
+        <div>
+            <h1>Bingo</h1>
+            <table>
+                <tbody id="tablero"></tbody>
+            </table>
+            <button onclick="resetear()">Resetear juego</button>
+            <button onclick="desbloquear()">Desbloquear Numero</button>
+            <button onclick="automatico()">Generar numero aleatorio</button>
+            <div id="numSel" style="font-size: 30px;"></div>
+        </div>
+        <div>
+            <h1>Bingo</h1>
+            <table>
+                <tbody id="table2"></tbody>
+            </table>
+        </div>
+    </main>
+
+
+
+    <script> 
+        const tablero = document.getElementById("tablero")
+        const numSel = document.getElementById("numSel")
+        const table1 = document.getElementById("table1")
+        const table2 = document.getElementById("table2")
+
+        // Crear matriz para guardar numeros random
+        var bingoMatriz = []
+        numerosSeleccinados = []
+        
+        // Generador de tablero
+        nuevaTabla()
+        // Generador de tablas
+        nuevoBingo(table1)
+        nuevoBingo(table2)
+
+        function crearMatriz(){
+            // Asignar valores iniciales para minimo y maximo del rango de numeros random
+            var min = 1
+            var max = 15
+            // Llenar la matriz
+            for (var i = 0; i < 5; i++) {
+                // Crear fila en la matriz
+                bingoMatriz[i] = []
+                for (var j = 0; j < 5; j++) {
+                    // Asignar signo en lugar de numero a la posicion bingoMatriz[2][2] que representa el centro de la matriz
+                    if(i == 2 && j == 2){
+                        bingoMatriz[i][j] = "@"
+                    }else{
+                        // Generar numero random
+                        ran = randomNumber(min,max)
+                        while(bingoMatriz[i].includes(ran)){
+                            // Si el numero random ya existe dentro de la fila, genera un nuevo numero random
+                            ran = randomNumber(min,max)
+                        }
+                        // Agrega el valor rando a la celda de la fila correspondiente
+                        bingoMatriz[i][j] = ran
+                    }
+                }
+                // Incrementa las variable minimo y maximo en 15
+                min += 15
+                max += 15
+            }
+        }
+
+        // Imprime la matriz con numeros random en 
+        function nuevoBingo(table){
+            // Crear matriz con nuevos valores
+            crearMatriz()
+            // Eliminar el contenido de la tabla
+            table.innerHTML = ""
+
+            // Mostrar los valores de la matriz en la tabla
+            for (var j = 0; j < 5; j++) {
+                // Crear nueva fila
+                var fila = document.createElement("tr")
+                // Agregar nueva fila a la tabla
+                table.appendChild(fila)   
+                for (var i = 0; i < 5; i++) {
+                    // Crear nueva celda
+                    var celda = document.createElement("td");
+                    // Asignar el valor de la matriz a la celda, en este caso la matriz 
+                    // esta en sentido contrario al que se representa, es decir, 
+                    // las filas de la matriz seran las columnas de la tabla y las columnas
+                    // de la matriz seran las filas de la tabla, si se mostraran los valores
+                    // de la matriz de la misma forma en que estan organizados se usaria 
+                    // bingoMatriz[j][i], porque j representa las filas e i representa las columnas
+                    celda.innerHTML = bingoMatriz[i][j];
+                    // Agregar celda a la tabla
+                    fila.appendChild(celda);
+                }
+            }
+        }
+
+        // Crear tabla
+        function nuevaTabla(){
+            // Crear variable de conteo para llenar las celdas
+            var con = 0;
+            for (var j = 0; j < 5; j++) {
+                // Crear nueva fila
+                var fila = document.createElement("tr")
+                // Agregar nueva fila a la tabla
+                tablero.appendChild(fila)   
+                for (var i = 0; i < 15; i++) {
+                    // Incrementar valor de variable de conteo en 1
+                    con++;
+                    // Crear nueva celda
+                    var celda = document.createElement("td");
+                    // Agregar funcion on click a la celda
+                    celda.setAttribute("onclick","seleccionar(event)")
+                    // Agregar contenido a la celda
+                    celda.innerHTML = con;
+                    // Agregar celda a la tabla
+                    fila.appendChild(celda);
+                }
+            }
+        }
+        
+        function seleccionar(e){
+            elemento = e.target
+            elemento.style.backgroundColor = "gray"
+            numSel.innerHTML = ""
+            numSel.innerHTML = "Número seleccionado: "+elemento.innerHTML
+            if(!numerosSeleccinados.includes(elemento.innerHTML)){
+                numerosSeleccinados.push(+elemento.innerHTML)
+            }
+        }
+
+        function desbloquear(){
+            if(numerosSeleccinados.length == 0){
+                alert("No hay elementos seleccionados")
+            }else{
+                var numero = parseInt(prompt("Que numero quiere desbloquear?"))
+                while(!numerosSeleccinados.includes(numero)){
+                    console.log(numero)
+                    alert("El numero no esta seleccionado, o no es valido, solo valores entre 1 y 75")
+                    numero = parseInt(prompt("Que numero quiere desbloquear?"))
+                }
+                var index = numerosSeleccinados.indexOf(numero)
+                numerosSeleccinados.splice(index,1)
+            }
+
+            for (var j = 0; j < 5; j++) {
+                for (var i = 0; i < 15; i++) {
+                    if(tablero.children[j].children[i].innerHTML == numero){
+                        tablero.children[j].children[i].style.backgroundColor = ""
+                    }
+                }
+            }
+        }
+
+        function automatico(){
+            if(numerosSeleccinados.length<75){
+                var numeroAleatorio = randomNumber(1,75)
+                while(numerosSeleccinados.includes(numeroAleatorio)){
+                    var numeroAleatorio = randomNumber(1,75)    
+                }
+                numerosSeleccinados.push(numeroAleatorio)
+                numSel.innerHTML = "<h1>Número: "+numeroAleatorio+"</h1>"
+
+                for (var j = 0; j < 5; j++) {
+                    for (var i = 0; i < 15; i++) {
+                        if(tablero.children[j].children[i].innerHTML == numeroAleatorio){
+                            tablero.children[j].children[i].style.backgroundColor = "gray"
+                        }
+                        if(i<5){
+                            if(table1.children[j].children[i].innerHTML == numeroAleatorio){
+                                table1.children[j].children[i].style.backgroundColor = "gray"
+                            }
+                            if(table2.children[j].children[i].innerHTML == numeroAleatorio){
+                                table2.children[j].children[i].style.backgroundColor = "gray"
+                            }
+                        }
+
+                    }
+                }
+            }
+        }
+
+        function resetear(){
+            location.reload()
+        }
+
+        // Funcion para generar numero random recibe numero minimo y numero maximo
+        function randomNumber(min,max){
+            ran = Math.floor(Math.random()*max+1); // Genera numero random lo multiplica por el numero maximo + 1, para que tambien pueda generar el numero maximo 
+            while(ran<min || ran>max){
+                // Si el numero generado es mayor al maximo o menor al minimo genera un nuevo numero
+                ran = Math.floor(Math.random()*max+1);
+            }
+            return ran; // Devuelve el numero random
+        }
+        
+    </script>
+</body>
+</html>
